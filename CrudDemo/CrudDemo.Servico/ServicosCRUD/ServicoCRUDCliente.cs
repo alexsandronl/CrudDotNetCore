@@ -1,6 +1,6 @@
 ﻿using CrudDemo.Dominio.Entidades;
 using CrudDemo.Dominio.Interfaces;
-using CrudDemo.RepositorioEF.ServicosRepositorio;
+using CrudDemo.Infraestrutura.ServicosRepositorio;
 using CrudDemo.Servico.Validations;
 using FluentValidation;
 using System;
@@ -13,7 +13,7 @@ namespace CrudDemo.Servico.ServicosCRUD
 {
     public class ServicoCRUDCliente : ServicoCRUDBase<Cliente>, IServicoCRUD<Cliente>
     {
-        public ServicoCRUDCliente(ServicoRepositorioCliente repositorio) : base(repositorio) { }
+        public ServicoCRUDCliente(IServicoRepositorio<Cliente> repositorio) : base(repositorio) { }
 
         public override async Task<Guid> Salvar<TValidator>(Cliente registro)
         {

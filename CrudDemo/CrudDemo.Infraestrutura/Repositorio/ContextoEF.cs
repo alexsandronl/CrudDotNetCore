@@ -1,5 +1,5 @@
 ﻿using CrudDemo.Dominio.Entidades;
-using CrudDemo.RepositorioEF.Mapeamentos;
+using CrudDemo.Infraestrutura.Mapeamentos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrudDemo.RepositorioEF.Repositorio
+namespace CrudDemo.Infraestrutura.Repositorio
 {
     public class ContextoEF : DbContext, IDisposable
     {

@@ -1,7 +1,7 @@
 ﻿using CrudDemo.Dominio.Entidades;
 using CrudDemo.Dominio.Enums;
 using CrudDemo.Dominio.Interfaces;
-using CrudDemo.RepositorioEF.Repositorio;
+using CrudDemo.Infraestrutura.Repositorio;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrudDemo.RepositorioEF.ServicosRepositorio
+namespace CrudDemo.Infraestrutura.ServicosRepositorio
 {
     public class ServicoRepositorioCliente : ServicoRepositorioBase<Cliente>, IServicoRepositorio<Cliente>
     {

@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using CrudDemo.Dominio.Entidades;
 using CrudDemo.Dominio.Interfaces;
-using CrudDemo.RepositorioEF.Repositorio;
-using CrudDemo.RepositorioEF.ServicosRepositorio;
+using CrudDemo.Infraestrutura.Repositorio;
+using CrudDemo.Infraestrutura.ServicosRepositorio;
 using CrudDemo.Servico.ServicosCRUD;
 
 namespace CrudDemo.IoC
@@ -12,12 +12,17 @@ namespace CrudDemo.IoC
         public static void Load(ContainerBuilder builder)
         {
 
+            //builder
+            //    .RegisterType<ContextoEF>()
+            //    .WithParameter("options", DbContextOptionsFactory.Get())
+            //    .InstancePerLifetimeScope();
+
             #region IOC Serviços
-            builder.RegisterType<ServicoCRUDCliente>().As<IServicoCRUD<Cliente>>();
+            builder.RegisterType<ServicoCRUDCliente>().As<IServicoCRUD<Cliente>>().InstancePerLifetimeScope();
             #endregion
 
             #region IOC Repositorios
-            builder.RegisterType<ServicoRepositorioCliente>().As<IServicoRepositorio<Cliente>>();
+            builder.RegisterType<ServicoRepositorioCliente>().As<IServicoRepositorio<Cliente>>().InstancePerLifetimeScope();
             #endregion
 
         }

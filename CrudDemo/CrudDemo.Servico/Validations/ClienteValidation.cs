@@ -21,7 +21,7 @@ namespace CrudDemo.Servico.Validations
 
             RuleFor(x => x.DataDeNascimento).NotEqual(default(DateTime))
                 .WithMessage("O data de nascimento é obrigatório");
-            RuleFor(x => x.DataDeNascimento).LessThanOrEqualTo(new DateTime(1900, 1, 1))
+            RuleFor(x => x.DataDeNascimento).GreaterThanOrEqualTo(new DateTime(1900, 1, 1))
                 .WithMessage("O data de nascimento não pode ser menor do que 01/01/1900");
 
             RuleFor(x => x.Documento).NotEmpty()

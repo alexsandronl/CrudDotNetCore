@@ -16,71 +16,89 @@ namespace CrudDemo.Api.Controllers
             _clienteService = clienteService;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> BuscaTodos()
+        {
+            try
+            {
+                var lista = await _clienteService.BuscaTodos();
+                return Ok(lista);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            if (id == default)
+                return NotFound();
+
+            try
+            {
+                return Ok(await _clienteService.BuscaPorId(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
-        public IActionResult Novo([FromBody] Cliente registro)
+        public async Task<IActionResult> Novo([FromBody] Cliente registro)
         {
             if (registro == null)
                 return NotFound();
 
-            if (registro.IndicadorRegistroNovo)
+            if (!registro.IndicadorRegistroNovo)
                 return BadRequest("É necessário que seja um novo registro");
 
-            return Execute(() => _clienteService.Salvar<ClienteValidation>(registro));
+            try
+            {
+                return Ok(await _clienteService.Salvar<ClienteValidation>(registro));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
-        public IActionResult Alterar([FromBody] Cliente registro)
+        public async Task<IActionResult> Alterar([FromBody] Cliente registro)
         {
             if (registro == null)
                 return NotFound();
 
             if (registro.IndicadorRegistroNovo)
                 return BadRequest("Não é permitido um registro novo");
-
-            return Execute(() => _clienteService.Salvar<ClienteValidation>(registro));
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Excluir(Guid id)
-        {
-            if (id == default)
-                return NotFound();
-
-            Execute(() =>
-            {
-                _clienteService.Excluir(id);
-                return true;
-            });
-
-            return new NoContentResult();
-        }
-
-        [HttpGet]
-        public IActionResult Buscatodos()
-        {
-            return Execute(() => _clienteService.BuscaTodos());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get(Guid id)
-        {
-            if (id == default)
-                return NotFound();
-
-            return Execute(() => _clienteService.BuscaPorId(id));
-        }
-
-        private IActionResult Execute(Func<object> func)
-        {
             try
             {
-                var result = func();
-                return Ok(result);
+                return Ok(await _clienteService.Salvar<ClienteValidation>(registro));
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Excluir(Guid id)
+        {
+            if (id == default)
+                return NotFound();
+
+            try
+            {
+                await _clienteService.Excluir(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

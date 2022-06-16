@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrudDemo.RepositorioEF.Mapeamentos
+namespace CrudDemo.Infraestrutura.Mapeamentos
 {
     public abstract class BaseClassMapping<T> : IEntityTypeConfiguration<T> where T : BaseClass
     {

@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Reflection;
-using CrudDemo.RepositorioEF.Repositorio;
 using CrudDemo.Dominio.Interfaces;
 using CrudDemo.Dominio.Entidades;
+using CrudDemo.Infraestrutura.Repositorio;
 
-namespace CrudDemo.RepositorioEF.ServicosRepositorio
+namespace CrudDemo.Infraestrutura.ServicosRepositorio
 {
     public class ServicoRepositorioBase<T> : IServicoRepositorio<T> where T : BaseClass
     {

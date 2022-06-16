@@ -1,7 +1,7 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using CrudDemo.Infraestrutura.Repositorio;
 using CrudDemo.IoC;
-using CrudDemo.RepositorioEF.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 //Configurando o AutoFac
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new ModuleIOC()));
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true); //Resolve problema com data no postgres
 
 builder.Services.AddDbContext<ContextoEF>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
