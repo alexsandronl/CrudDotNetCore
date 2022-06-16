@@ -24,6 +24,9 @@ namespace CrudDemo.RepositorioEF.Mapeamentos
                 .HasMaxLength(20)
                 .IsRequired();
 
+            builder.Property(t => t.IndicadorClienteAtivo)
+                .IsRequired();
+
             builder.Property(t => t.TipoDeDocumento)
                 .IsRequired();
 

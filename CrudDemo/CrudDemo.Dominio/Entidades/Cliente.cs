@@ -16,6 +16,8 @@ namespace CrudDemo.Dominio.Entidades
         public string Documento { get; set; } //Formatado como string para poder aceitar varios outros formatos de documentos no futuro
         public TipoDeDocumentoEnum TipoDeDocumento { get; set; }
 
+        public bool IndicadorClienteAtivo { get; set; }
+
         #region Campos de Endereço
 
         public string? Logradouro { get; set; }

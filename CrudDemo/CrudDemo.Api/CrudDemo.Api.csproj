@@ -9,12 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CrudDemo.Dominio\CrudDemo.Dominio.csproj" />
+    <ProjectReference Include="..\CrudDemo.IoC\CrudDemo.IoC.csproj" />
     <ProjectReference Include="..\CrudDemo.Servico\CrudDemo.Servico.csproj" />
   </ItemGroup>
 

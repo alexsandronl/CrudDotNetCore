@@ -15,6 +15,11 @@ namespace CrudDemo.RepositorioEF.Repositorio
         public ContextoEF(DbContextOptions<ContextoEF> options)
             : base(options) { }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql(@"Host=localhost;Port=5432;Pooling=true;Database=CrudDemo;User Id=postgres;Password=masterkey;");
+        }
+
 
         //DBSets
         public DbSet<Cliente> Cliente { get; set; }

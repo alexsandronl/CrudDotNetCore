@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudDemo.Dominio", "CrudDem
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudDemo.Infraestrutura", "CrudDemo.Infraestrutura\CrudDemo.Infraestrutura.csproj", "{ECEB0F83-ABBA-4267-B440-E5B9CED70738}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudDemo.Test", "CrudDemo.Test\CrudDemo.Test.csproj", "{BB9E267E-36BF-45D3-8D13-F40B9668059E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudDemo.IoC", "CrudDemo.IoC\CrudDemo.IoC.csproj", "{AED3585D-E596-468B-AC8C-164CD0E6E7B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{ECEB0F83-ABBA-4267-B440-E5B9CED70738}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECEB0F83-ABBA-4267-B440-E5B9CED70738}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECEB0F83-ABBA-4267-B440-E5B9CED70738}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB9E267E-36BF-45D3-8D13-F40B9668059E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB9E267E-36BF-45D3-8D13-F40B9668059E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB9E267E-36BF-45D3-8D13-F40B9668059E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB9E267E-36BF-45D3-8D13-F40B9668059E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AED3585D-E596-468B-AC8C-164CD0E6E7B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED3585D-E596-468B-AC8C-164CD0E6E7B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED3585D-E596-468B-AC8C-164CD0E6E7B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED3585D-E596-468B-AC8C-164CD0E6E7B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
