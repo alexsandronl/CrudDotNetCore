@@ -11,7 +11,7 @@ namespace CrudDemo.IoC
     {
         public static void Load(ContainerBuilder builder)
         {
-
+            //Para caso queira fazer a injeção de dependencia pelo AutoFac em vez de usar a injeção nativa do Asp Net Core
             //builder
             //    .RegisterType<ContextoEF>()
             //    .WithParameter("options", DbContextOptionsFactory.Get())
