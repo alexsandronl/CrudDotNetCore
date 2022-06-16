@@ -34,11 +34,15 @@ namespace CrudDemo.Api.Controllers
         public async Task<IActionResult> Get(Guid id)
         {
             if (id == default)
-                return NotFound();
+                return BadRequest("O Id é obrigatório");
 
             try
             {
-                return Ok(await _clienteService.BuscaPorId(id));
+                var registro = await _clienteService.BuscaPorId(id);
+                if (registro != null)
+                    return Ok(registro);
+                else
+                    return NotFound();
             }
             catch (Exception ex)
             {
@@ -50,7 +54,7 @@ namespace CrudDemo.Api.Controllers
         public async Task<IActionResult> Novo([FromBody] Cliente registro)
         {
             if (registro == null)
-                return NotFound();
+                return BadRequest("O cliente é obrigatório");
 
             if (!registro.IndicadorRegistroNovo)
                 return BadRequest("É necessário que seja um novo registro");
@@ -69,7 +73,7 @@ namespace CrudDemo.Api.Controllers
         public async Task<IActionResult> Alterar([FromBody] Cliente registro)
         {
             if (registro == null)
-                return NotFound();
+                return BadRequest("O cliente é obrigatório");
 
             if (registro.IndicadorRegistroNovo)
                 return BadRequest("Não é permitido um registro novo");
@@ -87,7 +91,7 @@ namespace CrudDemo.Api.Controllers
         public async Task<IActionResult> Excluir(Guid id)
         {
             if (id == default)
-                return NotFound();
+                return BadRequest("O Id é obrigatório");
 
             try
             {
