@@ -1,2 +1,2 @@
 # CrudDotNetCore
-- 👋 Desenvolvido para teste na vivo
+- 👋 Demo de um crud feito com Asp.Net Core, PostgreSQL, Entity Framework Core, DDD, Repository Pattern, etc...
