@@ -1,2 +1,2 @@
 # CrudDotNetCore
-- 👋 O código se encontra na branch master
+- 👋 O código se encontra na branch main
